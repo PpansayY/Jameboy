@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAMEBOY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #ffccff;
+      --secondary-color: #ff99cc;
+      --accent-color: #ffb3ff;
+      --background-color: #fff0f5;
+      --text-color: #833ab7;
+      --font-family: 'Poppins', sans-serif;
+      --script-font: 'Pacifico', cursive;
+      --kawaii-font: 'Amatic SC', cursive;
+      --header-height: 60px;
+      --border-radius: 25px;
+      --button-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    body {
+      font-family: var(--font-family);
+      margin: 0;
+      padding: 0;
+      background: var(--background-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+
+    header {
+      background: var(--accent-color);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      height: var(--header-height);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+    }
+
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    nav .logo {
+      font-family: var(--script-font);
+      font-size: 1.5rem;
+      color: var(--text-color);
+    }
+
+    nav .links {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    nav .links a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 15px;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    nav .links a i {
+      margin-right: 8px;
+    }
+
+    nav .links a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Hero section without background image */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      position: relative;
+      padding: 0 20px;
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+    }
+
+    .hero img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+    }
+
+    .hero h1,
+    .hero p,
+    .hero .cta-btn {
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin: 0;
+      font-family: var(--script-font);
+      background: rgba(255, 255, 255, 0.3);
+      padding: 10px 20px;
+      border-radius: var(--border-radius);
+      border: 5px dashed var(--secondary-color);
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 10px 20px;
+      border-radius: var(--border-radius);
+      border: 3px dashed var(--secondary-color);
+    }
+
+    .hero .cta-btn {
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: var(--button-shadow);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .hero .cta-btn:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.05);
+    }
+
+    .container {
+      padding: 80px 20px;
+      text-align: center;
+      width: 100%;
+      margin-top: var(--header-height);
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+      position: relative;
+      border: 3px dashed var(--secondary-color);
+    }
+
+    .section h1 {
+      font-size: 2.5rem;
+      margin: 0 0 20px;
+      color: var(--primary-color);
+      font-family: var(--kawaii-font);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section h1 i {
+      margin-right: 10px;
+    }
+
+    .message {
+      text-align: left;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    .message p {
+      font-size: 1rem;
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+
+    .next-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: var(--button-shadow);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .next-btn:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.05);
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius);
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      width: 45%;
+      aspect-ratio: 1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+      box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 1.5rem;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .overlay span {
+      font-family: var(--script-font);
+      font-size: 1.2rem;
+    }
+
+    footer {
+      background: var(--accent-color);
+      padding: 20px 0;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-size: 1rem;
+      color: #4b0082;
+    }
+
+    footer .footer-links {
+      margin: 10px 0;
+    }
+
+    footer .footer-links a {
+      color: var(--primary-color);
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 600;
+    }
+
+    footer .footer-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    footer .social-icons a {
+      margin: 0 10px;
+      color: var(--primary-color);
+      transition: color 0.3s;
+    }
+
+    footer .social-icons a:hover {
+      color: var(--secondary-color);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .next-btn {
+        padding: 8px 16px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .gallery-item {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">JAMEBOY</div>
+      <div class="links">
+        <a href="#hero"><i class="fas fa-home"></i> Home</a>
+        <a href="#messages"><i class="fas fa-envelope"></i> Messages</a>
+        <a href="#gallery"><i class="fas fa-images"></i> Gallery</a>
+        <a href="#playlist"><i class="fas fa-music"></i> Playlist</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="hero">
+      <!-- Replace with your actual image URL -->
+      <img src="purple.jpg" alt="Kawaii Background">
+      <h1>JAMEBOY</h1>
+      <p>Celebrating our love and beautiful memories together.</p>
+      <a href="#messages" class="cta-btn">Read Messages</a>
+    </section>
+    <section class="container section" id="messages">
+      <h1><i class="fas fa-envelope"></i> Messages</h1>
+      <div class="message">
+        <p>Hi baby, happy 3rd monthsary!</p>
+        <p>Time truly flies so fast. It feels like just yesterday we were celebrating our 2nd monthsary, and now, here we are again, marking another beautiful milestone in our journey. Every single day with you feels so special. This monthsary is a reminder of how far we’ve come and how much I treasure you. I can’t even begin to describe how much I miss you. Huhu. I hope you know just how important you are to me. You’re not just a part of my life—you’ve become my world, my happiness, and my everything. From the very beginning, I already knew it was you and only you that I wanted.</p>
+        <p>I know choosing you wasn’t easy. It meant sacrifices and risks, but never have I regretted it. Choosing you has been the best decision of my life, and I’d make the same choice over and over in every lifetime. Kahit sa unsang kalibutan pa, ikaw ra gyud akong pangitaon. You’re my "the one," my safe haven, and the greatest love of my life.</p>
+        <p>Baby, lisod kaayo atong sitwasyon karon. I can’t deny that I sometimes feel scared—scared of being caught again, scared of what might happen. But mas bug-at gyud ang akong gugma ug pagsalig sa atoang duha. I trust us. I trust our love. I know we can overcome anything together. Ikaw ra gyud ang gusto nako nga makauban bisan unsa pa ang maagian nato. Let’s hold on to each other, fight for our dreams, and build the future we’ve always imagined. One day, baby, we’ll wake up beside each other every morning, start our days with smiles, and end them holding hands, talking about how far we’ve come.</p>
+        <p>Someday, when we have our own family, I promise it will be one filled with love, joy, and understanding. Ikaw ra gyud akong gusto nga makauban sa tanan nakong plano.</p>
+        <p>Thank you for coming into my life so unexpectedly and turning it into something I never imagined. Before you, I didn’t believe in forever, but you changed all that. Among all the people I’ve known, ikaw ra gyud ang nakaabot sa akong kasingkasing in ways no one else ever could. You’ve shown me love in its purest form, and for that, I’ll forever be grateful. When I’m with you, I feel brave, loved, and complete.</p>
+        <p>Lisod kaayo lately, no? With school and everything going on, it feels like we don’t have enough time for each other. But, baby, this is just temporary. One day, we’ll have all the time in the world to make up for the moments we’ve missed. I miss our simple dates—sa mangroves, kampo, or anywhere nga kita lang duha. Wherever we go, basta kuyog tika, I feel at home. You’re my safe space, my happy place, and my everything.</p>
+        <p>Promise me, baby, nga di ka mobiya. I’ve given you everything—my heart, my soul, my whole self. Ikaw ra gyud akong gipili, and I’ll always choose you. They say love is a gamble, but you’re the kind of risk I’ll take over and over again. You’re my greatest reward and my greatest joy.</p>
+        <p>Among all the people I’ve met, ikaw ra ang nakaabot sa akong kasingkasing in this way. You’re not just my partner—you’re my best friend, my home, and my "once in a lifetime." In every lifetime, ikaw ra gyud akong pili-on. Let’s keep fighting for each other, no matter how hard things get. I love you more than words can ever express, and I promise to love you endlessly, in this lifetime and the next.</p>
+        <p>Happy 3rd monthsary, baby. I can’t wait for the future we’ll build together. I love you forever.</p>
+      </div>
+    </section>
+    <section class="container section" id="gallery">
+      <h1><i class="fas fa-images"></i> Gallery</h1>
+      <p>A collection of our special moments together.</p>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="1st.jpg" alt="Gallery 1">
+          <div class="overlay">
+            <i class="fas fa-heart"></i>
+            <span>Special Moment 1</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="2nd.jpg" alt="Gallery 2">
+          <div class="overlay">
+            <i class="fas fa-heart"></i>
+            <span>Special Moment 2</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container section" id="playlist">
+      <h1><i class="fas fa-music"></i> Our Playlist</h1>
+      <p>A playlist of our favorite songs to celebrate our love.</p>
+      <iframe src="https://open.spotify.com/embed/track/7KD8oUUpidul2ROxTIhPAw?si=eda82212bd8542e3" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="#hero">Home</a>
+      <a href="#messages">Messages</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#playlist">Playlist</a>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>Made with ❤️ by [Your Name]</p>
+  </footer>
+</body>
+
+</html>
